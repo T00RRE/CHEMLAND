@@ -301,6 +301,49 @@ header {
 	height: 2px;
 	background: var(--accent);
 }
+/* Responsive tweaks for the hero section (tablets & phones) */
+@media (max-width: 992px) {
+	.hero {
+		min-height: 60vh;
+		background-position: center top;
+	}
+	.hero-content {
+		max-width: 680px;
+		padding: 0 20px;
+		min-height: auto;
+	}
+	.hero h1 { font-size: 2.6rem; }
+	.hero p { font-size: 1.15rem; }
+	.hero-stats { margin-top: 40px; gap: 20px; }
+	.stat-value { font-size: 2.6rem; }
+}
+
+@media (max-width: 768px) {
+	.hero {
+		min-height: 70vh;
+		padding-top: 100px; /* avoid overlap with fixed header */
+		align-items: flex-start;
+	}
+	.hero-content {
+		padding: 18px 16px;
+		max-width: 100%;
+	}
+	.hero h1 { font-size: 2rem; margin-bottom: 16px; }
+	.hero p { font-size: 1rem; margin-bottom: 18px; max-width: 100%; }
+	.hero-btns { flex-direction: column; gap: 12px; }
+	/* Too much info on small screens: hide stats to keep focus on CTA */
+	.hero-stats { display: none; }
+}
+
+@media (max-width: 480px) {
+	.hero {
+		min-height: 56vh;
+		padding-top: 88px;
+	}
+	.hero h1 { font-size: 1.6rem; }
+	.hero p { font-size: 0.95rem; }
+	.btn { padding: 12px 20px; font-size: 0.95rem; }
+}
 /* About Section */
 .about {
 	background-color: white;
