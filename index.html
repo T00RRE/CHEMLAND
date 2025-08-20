@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="pl">
 
 <head>
@@ -63,14 +64,164 @@
 <meta name="geo.position" content="53.336413;15.039175">
 <meta name="ICBM" content="53.336413, 15.039175">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect dla zewnętrznych zasobów -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500&amp;display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500&amp;display=swap"></noscript>
-<link rel="stylesheet" href="css/style.css">
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preconnect" href="https://images.unsplash.com">
+
+<!-- Krytyczne style CSS inline -->
+<style>
+:root {
+	--primary: #0056b3;
+	--secondary: #00aaff;
+	--accent: #ff6b00;
+	--light: #f8f9fc;
+	--dark: #2c2c2c;
+	--gray: #6c757d;
+	--transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+	--shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	--radius: 8px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	line-height: 1.6;
+	color: var(--dark);
+	background-color: var(--light);
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	background: rgba(255, 255, 255, 0.97);
+	box-shadow: var(--shadow);
+	transition: var(--transition);
+}
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+	min-height: 80px;
+}
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	text-decoration: none;
+}
+.logo img {
+	height: 30px;
+	width: auto;
+}
+.hero {
+	height: 100vh;
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 86, 179, 0.9));
+	color: white;
+}
+.hero-content {
+	position: relative;
+	z-index: 2;
+	max-width: 900px;
+	padding: 0 30px;
+}
+.hero h1 {
+	font-size: 3.8rem;
+	margin-bottom: 25px;
+	color: white;
+	line-height: 1.1;
+	font-weight: 700;
+}
+.hero p {
+	font-size: 1.4rem;
+	margin-bottom: 40px;
+	opacity: 0.9;
+	max-width: 700px;
+}
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px 32px;
+	background-color: var(--accent);
+	color: #1a1a1a;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: var(--radius);
+	transition: var(--transition);
+	border: none;
+	cursor: pointer;
+	font-size: 1.05rem;
+	text-align: center;
+	letter-spacing: 0.5px;
+	gap: 10px;
+}
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+.nav-item {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.nav-link {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: var(--transition);
+    position: relative;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 48px;
+}
+.hamburger {
+	display: none;
+	cursor: pointer;
+	z-index: 1001;
+}
+@media (max-width: 768px) {
+	.hero h1 { font-size: 2.5rem; }
+	.hero p { font-size: 1.1rem; }
+	.nav-menu { display: none; }
+	.hamburger { display: block; }
+}
+</style>
+
+<!-- Asynchroniczne ładowanie czcionek z font-display: swap -->
+
+<!-- Główny CSS ładowany asynchronicznie -->
+<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+<!-- Font Awesome z font-display: swap -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
+
 <link rel="canonical" href="https://www.chemland.polfirms.pl/">
 </head>
 
@@ -81,7 +232,7 @@
 	<div class="container">
 		<nav class="navbar">
 			<a class="logo" href="#">
-				<img src="img/logo/logo.webp" alt="Logo Chemland">
+				<img src="img/logo/logo.webp" alt="Logo Chemland" width="30" height="30">
 			</a>
 			<ul class="nav-menu">
 				<li class="nav-item"><a class="nav-link active" href="#home">Strona Główna</a></li>
@@ -100,6 +251,11 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
+	<!-- Lazy loaded background image -->
+	<picture style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+		<source media="(max-width: 768px)" data-srcset="img/hero/slide01-mobile.webp">
+		<img class="lazy-bg" data-src="img/hero/slide01.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+	</picture>
 	<div class="container">
 		<div class="hero-content">
 			<h1>Lider w zaopatrzeniu laboratoriów od 1994 roku</h1>
@@ -175,7 +331,7 @@
 				</div>
 			</div>
 			<div class="about-image">
-				<img alt="Nowoczesne laboratorium Chemland" src="/img/hero/about_img.webp">
+				<img class="lazy" data-src="img/hero/about_img.webp" alt="Nowoczesne laboratorium Chemland" width="600" height="400">
 			</div>
 		</div>
 	</div>
@@ -191,7 +347,7 @@
 		<div class="products-grid">
 			<div class="product-card">
 				<div class="product-icon">
-					<img src="img/products/product-02.webp" alt="Urządzenia laboratoryjne 03">
+					<img class="lazy" data-src="img/products/product-02.webp" alt="Szkło laboratoryjne" width="300" height="200">
 				</div>
 				<div class="product-content">
 					<h3>Szkło i porcelana laboratoryjna</h3>
@@ -207,7 +363,7 @@
 			</div>
 			<div class="product-card">
 				<div class="product-icon">
-					<img src="img/products/product-04.webp" alt="Urządzenia laboratoryjne 02">
+					<img class="lazy" data-src="img/products/product-04.webp" alt="Urządzenia laboratoryjne" width="300" height="200">
 				</div>
 				<div class="product-content">
 					<h3>Urządzenia laboratoryjne</h3>
@@ -223,7 +379,7 @@
 			</div>
 			<div class="product-card">
 				<div class="product-icon">
-					<img src="img/products/product-01.webp" alt="Urządzenia laboratoryjne 01">
+					<img class="lazy" data-src="img/products/product-01.webp" alt="Odczynniki chemiczne" width="300" height="200">
 				</div>
 				<div class="product-content">
 					<h3>Odczynniki chemiczne</h3>
@@ -237,7 +393,6 @@
 					<a class="btn" href="https://sklep-chemland.pl/pl/odczynniki-chemiczne.html">Przeglądaj kategorię</a>
 				</div>
 			</div>
-		
 		</div>
 	</div>
 </section>
@@ -262,7 +417,7 @@
 				<h3>Magazyn Barzkowice</h3>
 				<p>Nowoczesny kompleks magazynowy uruchomiony w 2013 roku.</p>
 				<div class="facility-value">2000 m²</div>
-				<p>Specjalizuje się w przechowywaniu odczynირ</p>
+				<p>Specjalizuje się w przechowywaniu odczynників chemicznych.</p>
 			</div>
 			<div class="facility-card">
 				<i class="fas fa-expand-arrows-alt"></i>
@@ -284,22 +439,22 @@
         </div>
         <div class="partners-grid">
             <div class="partner-logo">
-                <img src="img/partners/firma_01.webp" alt="Logo Thermo Fisher Scientific">
+                <img class="lazy" data-src="img/partners/firma_01.webp" alt="Partner 1" width="120" height="60">
             </div>
             <div class="partner-logo">
-                <img src="img/partners/firma_02.webp" alt="Logo Sigma-Aldrich">
+                <img class="lazy" data-src="img/partners/firma_02.webp" alt="Partner 2" width="120" height="60">
             </div>
             <div class="partner-logo">
-                <img src="img/partners/firma_03.webp" alt="Logo Eppendorf">
+                <img class="lazy" data-src="img/partners/firma_03.webp" alt="Partner 3" width="120" height="60">
             </div>
             <div class="partner-logo">
-                <img src="img/partners/firma_04.webp" alt="Logo Corning">
+                <img class="lazy" data-src="img/partners/firma_04.webp" alt="Partner 4" width="120" height="60">
             </div>
             <div class="partner-logo">
-                <img src="img/partners/firma_05.webp" alt="Logo Mettler Toledo">
+                <img class="lazy" data-src="img/partners/firma_05.webp" alt="Partner 5" width="120" height="60">
             </div>
             <div class="partner-logo">
-                <img src="img/partners/firma_06.webp" alt="Logo VWR International">
+                <img class="lazy" data-src="img/partners/firma_06.webp" alt="Partner 6" width="120" height="60">
             </div>
         </div>
     </div>
@@ -426,7 +581,7 @@
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-col">
-				<h4> Przedsiębiorstwo Techniczno-Handlowe "CHEMLAND" Mariusz Bartczak</h4>
+				<h4>Przedsiębiorstwo Techniczno-Handlowe "CHEMLAND" Mariusz Bartczak</h4>
 				<p>Kompleksowe zaopatrzenie laboratoriów: szkło, urządzenia i odczynniki laboratoryjne spełniające najwyższe standardy jakości.</p>
 				<div class="contact-info-footer">
 					<p><i class="fas fa-map-marker-alt"></i>ul. Usługowa 3, 73-110 Stargard</p>
@@ -471,95 +626,164 @@
 	</div>
 </footer>
 
+<!-- Zoptymalizowany JavaScript -->
 <script>
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+// Lazy loading obrazów
+const lazyImages = document.querySelectorAll('.lazy, .lazy-bg');
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                observer.unobserve(img);
+            }
+            if (img.dataset.srcset) {
+                img.srcset = img.dataset.srcset;
+            }
+        }
+    });
+});
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+lazyImages.forEach(img => imageObserver.observe(img));
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
+// Lazy loading iframe
+const lazyIframes = document.querySelectorAll('.lazy-iframe');
+const iframeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const iframe = entry.target;
+            iframe.src = iframe.dataset.src;
+            iframe.classList.remove('lazy-iframe');
+            observer.unobserve(iframe);
+        }
+    });
+});
 
-        // Sticky Header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.classList.toggle('header-scrolled', window.scrollY > 100);
-        });
+lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+// Mobile Navigation - zoptymalizowane
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
+function toggleMobileMenu() {
+    navMenu.classList.toggle('active');
+    hamburger.innerHTML = navMenu.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+}
 
-        // Form submission
-        const contactForm = document.querySelector('.contact-form form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą najszybciej jak to możliwe.');
-                this.reset();
+hamburger?.addEventListener('click', toggleMobileMenu);
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu?.classList.remove('active');
+        if (hamburger) hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+// Sticky Header - z debounce
+let ticking = false;
+function updateHeader() {
+    const header = document.querySelector('header');
+    header?.classList.toggle('header-scrolled', window.scrollY > 100);
+    ticking = false;
+}
+
+function requestHeaderUpdate() {
+    if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+
+// Smooth scrolling - zoptymalizowane
+document.addEventListener('click', function(e) {
+    if (e.target.matches('a[href^="#"]')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
         }
+    }
+});
 
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.product-card, .facility-card, .feature-card');
-            
-            elements.forEach(el => {
-                const elementPosition = el.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        };
+// Form submission - zoptymalizowane
+const contactForm = document.querySelector('.contact-form form');
+contactForm?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Tutaj dodaj logikę wysyłania formularza
+    alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą najszybciej jak to możliwe.');
+    this.reset();
+});
 
-        // Set initial state for animated elements
-        document.querySelectorAll('.product-card, .facility-card, .feature-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(50px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
+// Animation on scroll - zoptymalizowane z Intersection Observer
+const animatedElements = document.querySelectorAll('.product-card, .facility-card, .feature-card');
 
-        // Listen for scroll events
-        window.addEventListener('scroll', animateOnScroll);
-        // Initial check in case elements are already in view
-        window.addEventListener('load', animateOnScroll);
-    </script>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://googletagmanager.com/gtag/js?id=G-1W5LQEXX32"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-1W5LQEXX32');
-	</script>
+// Set initial state
+animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(50px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+});
+
+const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            animationObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+animatedElements.forEach(el => animationObserver.observe(el));
+</script>
+
+<!-- Google Analytics - ładowane asynchronicznie z opóźnieniem -->
+<script>
+// Opóźnione ładowanie Google Analytics
+function loadGoogleAnalytics() {
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-1W5LQEXX32';
+    document.head.appendChild(script1);
+    
+    script1.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1W5LQEXX32');
+    };
+}
+
+// Ładuj Google Analytics po 3 sekundach lub po interakcji użytkownika
+let analyticsLoaded = false;
+function initAnalytics() {
+    if (!analyticsLoaded) {
+        loadGoogleAnalytics();
+        analyticsLoaded = true;
+    }
+}
+
+setTimeout(initAnalytics, 3000);
+['mousedown', 'touchstart', 'scroll'].forEach(event => {
+    document.addEventListener(event, initAnalytics, { once: true, passive: true });
+});
+</script>
+
 </body>
-
 </html>
