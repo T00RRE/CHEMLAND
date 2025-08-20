@@ -63,10 +63,13 @@
 <meta name="geo.placename" content="Stargard">
 <meta name="geo.position" content="53.336413;15.039175">
 <meta name="ICBM" content="53.336413, 15.039175">
-
+<link rel="preload" href="css/fonts/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<!-- Preload Font Awesome CSS (CDN) and local woff2 to speed up icon rendering -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.rel='stylesheet'" crossorigin>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous"></noscript>
+<link rel="preload" href="css/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Preconnect dla zewnętrznych zasobów -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="preconnect" href="https://images.unsplash.com">
 
 <!-- Krytyczne style CSS inline -->
 <style>
@@ -218,9 +221,6 @@ header {
 <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 
-<!-- Font Awesome z font-display: swap -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
 
 <link rel="canonical" href="https://www.chemland.polfirms.pl/">
 </head>
@@ -247,7 +247,7 @@ header {
 				<i class="fas fa-bars"></i></div>
 		</nav>
 	</div>
-</header>
+</header> 
 
 <!-- Hero Section -->
 <section id="home" class="hero">
