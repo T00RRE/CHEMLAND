@@ -66,8 +66,6 @@
 <link rel="preload" href="css/fonts/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <!-- Preload Font Awesome CSS (CDN) and local woff2 to speed up icon rendering -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.rel='stylesheet'" crossorigin>
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous"></noscript>
 <link rel="preload" href="css/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Preconnect dla zewnętrznych zasobów -->
 
@@ -244,7 +242,8 @@ header {
 				<li class="nav-item"><a class="btn" href="https://sklep-chemland.pl/pl/">Sklep online</a></li>
 			</ul>
 			<div class="hamburger">
-				<i class="fas fa-bars"></i></div>
+				<img class="icon" src="img/icons/menu.svg" alt="menu">
+			</div>
 		</nav>
 	</div>
 </header> 
@@ -301,28 +300,28 @@ header {
 				<p>W Chemland stawiamy na innowacje, precyzję i zaufanie, budując długotrwałe relacje z klientami i partnerami.</p>
 				<div class="about-features">
 					<div class="feature">
-						<i class="fas fa-warehouse"></i>
+						<img class="icon" src="img/icons/building.svg" alt="magazyn">
 						<div>
 							<h4>4 nowoczesne magazyny</h4>
 							<p>W tym zaawansowany magazyn wysokiego składowania</p>
 						</div>
 					</div>
 					<div class="feature">
-						<i class="fas fa-flask"></i>
+						<img class="icon" src="img/icons/flask-conical.svg" alt="laboratorium">
 						<div>
 							<h4>Własne laboratoria</h4>
 							<p>Testujemy każdy produkt, by zapewnić najwyższą jakość</p>
 						</div>
 					</div>
 					<div class="feature">
-						<i class="fas fa-truck"></i>
+						<img class="icon" src="img/icons/package.svg" alt="dostawa">
 						<div>
 							<h4>Szybka dostawa</h4>
 							<p>Realizacja zamówień w 24-48 godzin w całej Polsce</p>
 						</div>
 					</div>
 					<div class="feature">
-						<i class="fas fa-certificate"></i>
+						<img class="icon" src="img/icons/shield-check.svg" alt="certyfikat">
 						<div>
 							<h4>Certyfikaty ISO</h4>
 							<p>Produkty zgodne z normami ISO 9001 i ISO 17025</p>
@@ -353,10 +352,10 @@ header {
 					<h3>Szkło i porcelana laboratoryjna</h3>
 					<p>Wysokiej jakości szkło i ceramika laboratoryjna, odporne na ekstremalne warunki chemiczne i termiczne.</p>
 					<ul class="product-features">
-						<li><i class="fas fa-check"></i>Kolby miarowe i Erlenmeyera</li>
-						<li><i class="fas fa-check"></i>Pipety i biurety precyzyjne</li>
-						<li><i class="fas fa-check"></i>Szalki Petriego i szkło borokrzemowe</li>
-						<li><i class="fas fa-check"></i>Tygielki i parownice porcelanowe</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Kolby miarowe i Erlenmeyera</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Pipety i biurety precyzyjne</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Szalki Petriego i szkło borokrzemowe</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Tygielki i parownice porcelanowe</li>
 					</ul>
 					<a class="btn" href="https://sklep-chemland.pl/pl/szklo-laboratoryjne.html">Przeglądaj kategorię</a>
 				</div>
@@ -369,10 +368,10 @@ header {
 					<h3>Urządzenia laboratoryjne</h3>
 					<p>Zaawansowany sprzęt wspierający badania naukowe i analizy laboratoryjne.</p>
 					<ul class="product-features">
-						<li><i class="fas fa-check"></i>Cieplarki i inkubatory z kontrolą temperatury</li>
-						<li><i class="fas fa-check"></i>Wirówki o wysokiej precyzji</li>
-						<li><i class="fas fa-check"></i>Pompy próżniowe i mieszadła magnetyczne</li>
-						<li><i class="fas fa-check"></i>Wytrząsarki i wyparki laboratoryjne</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Cieplarki i inkubatory z kontrolą temperatury</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Wirówki o wysokiej precyzji</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Pompy próżniowe i mieszadła magnetyczne</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Wytrząsarki i wyparki laboratoryjne</li>
 					</ul>
 					<a class="btn" href="https://sklep-chemland.pl/pl/urzadzenia-chemland.html">Przeglądaj kategorię</a>
 				</div>
@@ -385,10 +384,10 @@ header {
 					<h3>Odczynniki chemiczne</h3>
 					<p>Pełna gama odczynników chemicznych do zastosowań naukowych i przemysłowych.</p>
 					<ul class="product-features">
-						<li><i class="fas fa-check"></i>Kwasy i zasady o wysokiej czystości</li>
-						<li><i class="fas fa-check"></i>Rozpuszczalniki organiczne i nieorganiczne</li>
-						<li><i class="fas fa-check"></i>Bufory pH i roztwory wzorcowe</li>
-						<li><i class="fas fa-check"></i>Wskaźniki chemiczne i odczynniki analityczne</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Kwasy i zasady o wysokiej czystości</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Rozpuszczalniki organiczne i nieorganiczne</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Bufory pH i roztwory wzorcowe</li>
+						<li><img class="icon" src="img/icons/check.svg" alt="check">Wskaźniki chemiczne i odczynniki analityczne</li>
 					</ul>
 					<a class="btn" href="https://sklep-chemland.pl/pl/odczynniki-chemiczne.html">Przeglądaj kategorię</a>
 				</div>
@@ -406,21 +405,21 @@ header {
 		</div>
 		<div class="facilities-content">
 			<div class="facility-card">
-				<i class="fas fa-warehouse"></i>
+				<img class="icon" src="img/icons/warehouse.svg" alt="magazyn">
 				<h3>Magazyn Główny</h3>
 				<p>Stargard, ul. Usługowa 3</p>
 				<div class="facility-value">2000 m²</div>
 				<p>Centralny hub dystrybucyjny z zaawansowanym systemem zarządzania zapasami.</p>
 			</div>
 			<div class="facility-card">
-				<i class="fas fa-building"></i>
+				<img class="icon" src="img/icons/warehouse.svg" alt="budynek">
 				<h3>Magazyn Barzkowice</h3>
 				<p>Nowoczesny kompleks magazynowy uruchomiony w 2013 roku.</p>
 				<div class="facility-value">2000 m²</div>
-				<p>Specjalizuje się w przechowywaniu odczynників chemicznych.</p>
+				<p>Specjalizuje się w przechowywaniu odczynników chemicznych.</p>
 			</div>
 			<div class="facility-card">
-				<i class="fas fa-expand-arrows-alt"></i>
+				<img class="icon" src="img/icons/warehouse.svg" alt="magazyn wysokiego skladowania">
 				<h3>Magazyn Wysokiego Składowania</h3>
 				<p>Najnowocześniejszy obiekt z automatycznymi systemami składowania.</p>
 				<div class="facility-value">3000 m²</div>
@@ -469,22 +468,22 @@ header {
 			<a class="btn" href="https://sklep-chemland.pl/pl/" style="margin-top: 40px;">Odwiedź nasz sklep</a>
 			<div class="store-features">
 				<div class="feature-card">
-					<i class="fas fa-sync-alt"></i>
+					<img class="icon" src="img/icons/cloud-check.svg" alt="sync">
 					<h3>Aktualne stany magazynowe</h3>
 					<p>Pełna transparentność dostępności produktów w czasie rzeczywistym.</p>
 				</div>
 				<div class="feature-card">
-					<i class="fas fa-tag"></i>
+					<img class="icon" src="img/icons/wallet.svg" alt="tag">
 					<h3>Przejrzyste ceny</h3>
 					<p>Jedna z nielicznych platform w Europie z pełną jawnością cenową.</p>
 				</div>
 				<div class="feature-card">
-					<i class="fas fa-shipping-fast"></i>
+					<img class="icon" src="img/icons/truck.svg" alt="dostawa">
 					<h3>Ekspresowa dostawa</h3>
 					<p>Twoje zamówienie dotrze w ciągu 24-48 godzin.</p>
 				</div>
 				<div class="feature-card">
-					<i class="fas fa-headset"></i>
+					<img class="icon" src="img/icons/headset.svg" alt="wsparcie">
 					<h3>Wsparcie ekspertów</h3>
 					<p>Nasz zespół doradzi w doborze produktów i rozwiązań laboratoryjnych.</p>
 				</div>
@@ -506,28 +505,28 @@ header {
 				<p>Twój partner w kompleksowym zaopatrzeniu laboratoriów od 1994 roku.</p>
 				<div class="contact-details">
 					<div class="contact-item">
-						<i class="fas fa-map-marker-alt"></i>
+						<img class="icon" src="img/icons/map-pin.svg" alt="adres">
 						<div class="contact-text">
 							<h4>Adres</h4>
 							<p>ul. Usługowa 3, 73-110 Stargard, Polska</p>
 						</div>
 					</div>
 					<div class="contact-item">
-						<i class="fas fa-phone"></i>
+						<img class="icon" src="img/icons/phone.svg" alt="telefon">
 						<div class="contact-text">
 							<h4>Telefon</h4>
 							<p>+48 607 404 043<br></p>
 						</div>
 					</div>
 					<div class="contact-item">
-						<i class="fas fa-envelope"></i>
+						<img class="icon" src="img/icons/mail.svg" alt="email">
 						<div class="contact-text">
 							<h4>Email</h4>
 							<p><a href="mailto:biuro@chemland.pl" style="color: rgb(0, 0, 0); text-decoration: none;">biuro@chemland.pl</a></p>
 						</div>
 					</div>
 					<div class="contact-item">
-						<i class="fas fa-clock"></i>
+						<img class="icon" src="img/icons/clock.svg" alt="godziny">
 						<div class="contact-text">
 							<h4>Godziny pracy</h4>
 							<p>Poniedziałek - Piątek: 7:30 - 15:30</p>
@@ -535,10 +534,10 @@ header {
 					</div>
 				</div>
 				<div class="social-links">
-					<a href="https://www.facebook.com/chemland" aria-label="Facebook Chemland"><i class="fab fa-facebook-f"></i></a>
-					<a href="https://www.linkedin.com/company/chemland" aria-label="LinkedIn Chemland"><i class="fab fa-linkedin-in"></i></a>
-					<a href="https://twitter.com/chemland_pl" aria-label="Twitter Chemland"><i class="fab fa-twitter"></i></a>
-					<a href="https://www.instagram.com/chemland_pl" aria-label="Instagram Chemland"><i class="fab fa-instagram"></i></a>
+					<a href="https://www.facebook.com/chemland" aria-label="Facebook Chemland"><img class="icon" src="img/icons/facebook (1).svg" alt="facebook-icon"></a>
+					<a href="https://www.linkedin.com/company/chemland" aria-label="LinkedIn Chemland"><img class="icon" src="img/icons/linkedin.svg" alt="LinkedIn-icon"></a>
+					<a href="https://twitter.com/chemland_pl" aria-label="Twitter Chemland"><img class="icon" src="img/icons/twitter.svg" alt="Twitter-icon"></a>
+					<a href="https://www.instagram.com/chemland_pl" aria-label="Instagram Chemland"><img class="icon" src="img/icons/instagram.svg" alt="Instagram-icon"></a>
 				</div>
 				<div class="map-container">
 					<iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2371.238017553499!2d15.039175315791122!3d53.33641347998106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700e4f1d7a6d0e7%3A0x3e9a0e5b0d6c4b1e!2sUs%C5%82ugowa%203%2C%2073-110%20Stargard!5e0!3m2!1spl!2spl!4v1658767890123!5m2!1spl!2spl" title="Mapa lokalizacji Chemland"></iframe>
@@ -584,9 +583,9 @@ header {
 				<h4>Przedsiębiorstwo Techniczno-Handlowe "CHEMLAND" Mariusz Bartczak</h4>
 				<p>Kompleksowe zaopatrzenie laboratoriów: szkło, urządzenia i odczynniki laboratoryjne spełniające najwyższe standardy jakości.</p>
 				<div class="contact-info-footer">
-					<p><i class="fas fa-map-marker-alt"></i>ul. Usługowa 3, 73-110 Stargard</p>
-					<p><i class="fas fa-phone"></i>+48 607 404 043</p>
-					<p><i class="fas fa-envelope"></i><a href="mailto:biuro@chemland.pl" style="color: white; text-decoration: none;">biuro@chemland.pl</a></p>
+					<p>ul. Usługowa 3, 73-110 Stargard</p>
+					<p>+48 607 404 043</p>
+					<p><a href="mailto:biuro@chemland.pl" style="color: white; text-decoration: none;">biuro@chemland.pl</a></p>
 				</div>
 			</div>
 			<div class="footer-col">
@@ -669,8 +668,11 @@ const navMenu = document.querySelector('.nav-menu');
 
 function toggleMobileMenu() {
     navMenu.classList.toggle('active');
-    hamburger.innerHTML = navMenu.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+	const img = hamburger.querySelector('img');
+	if (img) {
+		img.src = navMenu.classList.contains('active') ? 'img/icons/x.svg' : 'img/icons/menu.svg';
+		img.alt = navMenu.classList.contains('active') ? 'close' : 'menu';
+	}
 }
 
 hamburger?.addEventListener('click', toggleMobileMenu);
@@ -679,7 +681,8 @@ hamburger?.addEventListener('click', toggleMobileMenu);
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu?.classList.remove('active');
-        if (hamburger) hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+	const img = hamburger?.querySelector('img');
+	if (img) { img.src = 'img/icons/menu.svg'; img.alt = 'menu'; }
     });
 });
 

@@ -1,0 +1,12 @@
+{
+  "name": "Chemland - Kompleksowe zaopatrzenie laboratoriów",
+  "short_name": "Chemland",
+  "description": "Lider w produkcji i dystrybucji szkła, urządzeń i odczynników laboratoryjnych od 1994 roku",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fc",
+  "theme_color": "#0056b3",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pl"
+}
