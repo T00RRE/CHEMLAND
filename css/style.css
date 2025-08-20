@@ -13,8 +13,11 @@
 	font-style: normal;
 }
 .icon {
-  color: white;
-  stroke: currentColor;
+	color: inherit;
+	stroke: currentColor;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
 }
 	--primary: #0056b3;
 	--secondary: #00aaff;
@@ -239,8 +242,32 @@ header {
 	align-items: center;
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 86, 179, 0.9)), url('../img/hero/slide01.webp') no-repeat center center/cover;
+	/* gradient overlay + background image moved to external CSS for caching and responsive swaps */
+	background-color: #0056b3; /* fallback color while image loads */
 	color: white;
+}
+
+/* Default desktop hero background */
+.hero {
+	background-image: linear-gradient(rgba(0,86,179,0.85), rgba(0,86,179,0.9)), url('../img/hero/slide01.webp');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+/* Use JPG as fallback for browsers without webp support (served locally) */
+@supports not (background-image: url('../img/hero/slide01.webp')) {
+	.hero { background-image: linear-gradient(rgba(0,86,179,0.85), rgba(0,86,179,0.9)), url('../img/hero/slide01.webp'); }
+}
+
+/* Smaller hero image for tablets */
+@media (max-width: 992px) {
+	.hero { background-image: linear-gradient(rgba(0,86,179,0.85), rgba(0,86,179,0.9)), url('../img/hero/slide01.webp'); background-position: center top; background-size: cover; }
+}
+
+/* Mobile: use smaller image or different positioning to keep composition */
+@media (max-width: 768px) {
+	.hero { background-image: linear-gradient(rgba(0,86,179,0.85), rgba(0,86,179,0.9)), url('../img/hero/slide01-mobile.webp'); background-position: center top; background-size: cover; }
 }
 .hero-content {
 	position: relative;
@@ -484,7 +511,6 @@ header {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url('https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
 	opacity: 0.08;
 }
 .facilities .section-title h2 {

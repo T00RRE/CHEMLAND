@@ -68,6 +68,8 @@
 <!-- Preload Font Awesome CSS (CDN) and local woff2 to speed up icon rendering -->
 <link rel="preload" href="css/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Preconnect dla zewnętrznych zasobów -->
+	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
 <!-- Krytyczne style CSS inline -->
 <style>
@@ -219,6 +221,9 @@ header {
 <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 
+<!-- Preload hero image (LCP) -->
+<link rel="preload" href="img/hero/slide01.webp" as="image">
+
 
 <link rel="canonical" href="https://www.chemland.polfirms.pl/">
 </head>
@@ -250,11 +255,7 @@ header {
 
 <!-- Hero Section -->
 <section id="home" class="hero">
-	<!-- Lazy loaded background image -->
-	<picture style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-		<source media="(max-width: 768px)" data-srcset="img/hero/slide01-mobile.webp">
-		<img class="lazy-bg" data-src="img/hero/slide01.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
-	</picture>
+	<!-- background moved to external CSS for caching and responsive swaps -->
 	<div class="container">
 		<div class="hero-content">
 			<h1>Lider w zaopatrzeniu laboratoriów od 1994 roku</h1>
@@ -628,7 +629,7 @@ header {
 <!-- Zoptymalizowany JavaScript -->
 <script>
 // Lazy loading obrazów
-const lazyImages = document.querySelectorAll('.lazy, .lazy-bg');
+const lazyImages = document.querySelectorAll('.lazy');
 const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -758,34 +759,65 @@ animatedElements.forEach(el => animationObserver.observe(el));
 
 <!-- Google Analytics - ładowane asynchronicznie z opóźnieniem -->
 <script>
-// Opóźnione ładowanie Google Analytics
-function loadGoogleAnalytics() {
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-1W5LQEXX32';
-    document.head.appendChild(script1);
-    
-    script1.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1W5LQEXX32');
-    };
-}
+// Non-blocking Google Analytics loader (Option A)
+(function(){
+	const GA_ID = 'G-1W5LQEXX32';
+	let loaded = false;
 
-// Ładuj Google Analytics po 3 sekundach lub po interakcji użytkownika
-let analyticsLoaded = false;
-function initAnalytics() {
-    if (!analyticsLoaded) {
-        loadGoogleAnalytics();
-        analyticsLoaded = true;
-    }
-}
+	function injectPreconnect() {
+		if (!document.querySelector('link[rel="preconnect"][href="https://www.googletagmanager.com"]')) {
+			const l = document.createElement('link');
+			l.rel = 'preconnect'; l.href = 'https://www.googletagmanager.com'; l.crossOrigin = '';
+			document.head.appendChild(l);
+		}
+		if (!document.querySelector('link[rel="preconnect"][href="https://www.google-analytics.com"]')) {
+			const l2 = document.createElement('link');
+			l2.rel = 'preconnect'; l2.href = 'https://www.google-analytics.com'; l2.crossOrigin = '';
+			document.head.appendChild(l2);
+		}
+	}
 
-setTimeout(initAnalytics, 3000);
-['mousedown', 'touchstart', 'scroll'].forEach(event => {
-    document.addEventListener(event, initAnalytics, { once: true, passive: true });
-});
+	// lightweight gtag stub to queue commands until GA loads
+	window.dataLayer = window.dataLayer || [];
+	window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
+
+	function loadGA(){
+		if (loaded) return; loaded = true;
+		const s = document.createElement('script');
+		s.async = true;
+		s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+		s.onload = function(){
+			window.gtag('js', new Date());
+			window.gtag('config', GA_ID, { 'anonymize_ip': true });
+		};
+		document.head.appendChild(s);
+	}
+
+	function shouldLoad(){
+		try {
+			const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+			if (conn && conn.saveData) return false;
+			if (conn && /2g/.test(conn.effectiveType || '')) return false;
+		} catch (e){}
+		return true;
+	}
+
+	function schedule(){
+		if (!shouldLoad()) return; // respect user's save-data / slow connections
+		injectPreconnect();
+		if ('requestIdleCallback' in window) requestIdleCallback(loadGA, {timeout:3000});
+		else setTimeout(loadGA, 3000);
+	}
+
+	// Load on first user interaction or when page becomes idle/loaded
+	const onFirst = () => { schedule(); removeListeners(); };
+	function removeListeners(){ ['pointerdown','keydown','touchstart'].forEach(ev=>document.removeEventListener(ev,onFirst,{passive:true})); }
+	['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,onFirst,{passive:true, once:true}));
+
+	if (document.readyState === 'complete') schedule();
+	else window.addEventListener('load', schedule, {once:true});
+
+})();
 </script>
 
 </body>
